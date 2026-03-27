@@ -39,10 +39,13 @@ npm install
 Go to: https://openweathermap.org/api
 Sign up and generate a free API key
 
-5. Configure API Key
-Open src/App.js and replace:
+5. Configure API Key,
+   
+create .env file and paste : REACT_APP_API_KEY=a23c5c07aa355e1c6945a80a5803588b  
+
 Default key: a23c5c07aa355e1c6945a80a5803588b
-const API_KEY = "YOUR_API_KEY_HERE";
+
+
 
 with your actual API key.
 
