@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# 🌤 Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React Weather App that allows users to check the **current weather** and **5-day forecast** for any city or their **current location**, using the OpenWeather API.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+##Features
 
-### `npm start`
+- Search weather by **city name**  
+- Get weather based on your **current location**  
+- Display **temperature**, **weather description**, and **weather icons**  
+- Show a **5-day forecast** in a clear layout  
+- **Error handling** for invalid city names or location issues  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology Stack
 
-### `npm test`
+- **React**  
+- **Axios** (for API requests)  
+- **OpenWeather API**  
+- HTML, CSS, JavaScript  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+##Installation
+🚀 Getting Started
+1. **Clone the repository:**
+   
+ bash
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ git clone https://github.com/AshokLama/WeatherApp-Frontend.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install Dependencies
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+4. Get API Key
+Go to: https://openweathermap.org/api
+Sign up and generate a free API key
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Configure API Key
+Open src/App.js and replace:
+Default key: a23c5c07aa355e1c6945a80a5803588b
+const API_KEY = "YOUR_API_KEY_HERE";
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+with your actual API key.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Run the App
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app will run on:
+http://localhost:3000
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📂 Project Structure
+weather-app/
+│
+├── public/
+├── src/Component 
+          |-Search.js           #calls a function in App.js
+          |-WeatherCard.js      # displays current weather
+          |-Forecast.js         #displays forecast
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+│   ├── App.js                  # fetches current weather + 5-day forecast from OpenWeather API
+│   ├── App.css                 # Styling
+│   └── index.js                # Entry point
+│
+├── package.json
+└── README.md
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+⚙️ How It Works
+🔹 Fetch Current Weather
+Uses OpenWeather /weather endpoint
+Fetches data based on:
+City input OR
+Latitude & Longitude (Geolocation)
 
-### Analyzing the Bundle Size
+🔹 Fetch 5-Day Forecast
+Uses /forecast endpoint
+API returns data every 3 hours
+We filter data:
+index % 8 === 0
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+→ This selects one forecast per day (24 hours)
 
-### Making a Progressive Web App
+🔹 Geolocation
+Uses browser API:
+navigator.geolocation.getCurrentPosition()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+🔹 Error Handling
+Handled using try...catch:
+If city not found → show message
+Please enter a city
+Reset UI on error
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🌐 API Used
+OpenWeather API:
+Current Weather:
+https://api.openweathermap.org/data/2.5/weather
 
-### Deployment
+5-Day Forecast:
+https://api.openweathermap.org/data/2.5/forecast
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+🎨 UI Features
+Weather icons from OpenWeather
+Simple card layout for forecast
+Responsive flexbox layout
+Clean and minimal design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
