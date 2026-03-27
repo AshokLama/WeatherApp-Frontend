@@ -1,0 +1,23 @@
+# Weather App
+
+A React Weather App that allows users to get the current weather and 5-day forecast for any city or their current location using OpenWeather API.
+
+## Features
+
+- Search weather by city name
+- Get weather based on your current location
+- Display current temperature, description, and weather icon
+- Show 5-day weather forecast
+- Error handling for invalid city or location issues
+
+## Technologies Used
+
+- React
+- Axios (for API requests)
+- OpenWeather API
+- HTML, CSS, JavaScript
+
+## Installation
+
+1. Clone the repository:
+git clone https://github.com/AshokLama/Tech-assessment-1-Weather-App-frontend-
